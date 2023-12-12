@@ -27,13 +27,17 @@ const PersistLogin = () => {
 				}
 			};
 
-			if (!token) verifyRefreshToken();
+			console.log(token, "useEffect");
+
+			if (!token && persist) verifyRefreshToken();
 		}
 
 		return () => (effectRan.current = true);
 
 		// eslint-disable-next-line
 	}, []);
+
+	console.log(token, "main");
 
 	let content;
 	if (!persist) {
